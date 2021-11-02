@@ -4,6 +4,18 @@
 
         <hr>
 
+        <div>
+            <p>
+                Object Sign in : {{ objectSignInView }}
+            </p>
+            <button @click="getLogin"> 
+                Sign in WAX
+            </button>
+        </div>
+
+        <h3> IPFS </h3>
+
+
         <!-- <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
 
             <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
@@ -86,10 +98,16 @@ export default {
       counter: 0,
       patientsArr: [],
       searchInput: "",
+      objectSignInView: localStorage.getItem('userAccountWax') ? { userAccount: localStorage.getItem('userAccountWax'),  pubKeys: localStorage.getItem('pubKeysWax')} : "empty",
     };
   },
 
   methods: {
+      async getLogin(){
+        let objectSign = await this.loginWax();
+        this.objectSignInView = objectSign;
+        console.log("login")
+      },
       methodOne(){
           console.log("hello world");
       }

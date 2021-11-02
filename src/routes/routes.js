@@ -2,6 +2,7 @@ import Login from "@/views/Login/Login.vue";
 import Home from "@/views/Home/Home.vue";
 import VerificationList from "@/views/Verification/VerificationList.vue";
 import VerificationDetails from "@/views/Verification/VerificationDetails.vue";
+import IPFSComponent from "@/views/Home/IPFS.vue";
 import Verify from "@/views/Verification/Verify.vue";
 import PermissionDetails from "@/views/Permission/PermissionDetails.vue";
 import PermissionsList from "@/views/Permission/PermissionsList.vue";
@@ -41,8 +42,13 @@ const routes = [
       },
       {
         path: "verification/:id",
-        name: "Verification list",
+        name: "Verification details",
         component: VerificationDetails
+      },
+      {
+        path: "ipfs",
+        name: "ipfs",
+        component: IPFSComponent
       },
 
     ]
