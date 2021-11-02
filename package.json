@@ -9,10 +9,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@waxio/waxjs": "^1.0.4",
     "axios": "^0.19.2",
     "chartist": "0.11.4",
     "core-js": "3.6.4",
     "google-maps": "4.2.3",
+    "ipfs-http-client": "^53.0.1",
     "moment": "^2.24.0",
     "rxjs": "^6.6.0",
     "uikit": "^3.6.16",
@@ -22,14 +24,15 @@
     "vue-router": "3.1.6",
     "vue-select": "^3.1.0",
     "vue-social-sharing": "2.4.7",
-    "vuex": "^3.5.1"
+    "vuex": "^3.5.1",
+    "web3": "^1.6.0"
   },
   "devDependencies": {
-    "node-sass": "^4.12.0",
     "@vue/cli-plugin-babel": "4.2.3",
     "@vue/cli-plugin-router": "4.2.3",
     "@vue/cli-service": "4.2.3",
     "es6-promise": "4.2.8",
+    "node-sass": "^4.12.0",
     "prettier": "1.19.1",
     "sass": "1.26.2",
     "sass-loader": "8.0.2",
