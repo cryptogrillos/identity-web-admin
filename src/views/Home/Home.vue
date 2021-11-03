@@ -14,7 +14,9 @@
         </div>
 
         <h3> IPFS </h3>
-
+        <button @click="ipfsAddLocal"> 
+            Add to IPFS
+        </button>
 
         <!-- <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
 
@@ -107,6 +109,10 @@ export default {
         let objectSign = await this.loginWax();
         this.objectSignInView = objectSign;
         console.log("login")
+      },
+      async ipfsAddLocal(){
+          await this.ipfsAdd();
+          console.log("added");
       },
       methodOne(){
           console.log("hello world");
