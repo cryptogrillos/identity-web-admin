@@ -1,7 +1,7 @@
 import Axios from "axios";
 import router from "@/routes/index";
 import { store } from "@/store/index";
-
+import * as waxjs from "@waxio/waxjs/dist";
 // const loginAPI = (context, data) => {
 //   console.log("start loginAPI()");
 //   Axios.post(store.state.apiURL + "auth/login/", data)
@@ -23,12 +23,40 @@ import { store } from "@/store/index";
 //     });
 // };
 
-const login = (context, data) => {
+const login = async function(context, data) {
+  async function loginActions() {
+    try {
+        const wax = new waxjs.WaxJS('https://wax.greymass.com', null, null, false);
+        let userAccount = await wax.login();
+        let pubKeys = wax.pubKeys;
+        let str = 'Account: ' + userAccount + '<br/>Active: ' + pubKeys[0]
+            + '<br/>Owner: ' + pubKeys[1]
+        console.log(str)
+        console.log("aaaa");
+        localStorage.setItem('userAccountWax', userAccount);
+        localStorage.setItem('pubKeysWax', pubKeys);
+        return {
+          userAccount: userAccount,
+          pubKeys: pubKeys,
+        }
+    } catch (e) {
+        console.log(e.message);
+    }
+  } 
   console.log("start login()");
   console.log(data);
-  store.commit("updateLogin");
-  localStorage.setItem('authIdentity', true);
-  router.push({ name: "Home" })
+  // store.commit("updateLogin");
+  let objectSign = await loginActions();
+  if (objectSign) {
+    console.log(objectSign)
+    localStorage.setItem('authIdentity', true);
+    localStorage.setItem('waxUser', objectSign);
+    localStorage.setItem('waxUserAccount', objectSign.userAccount);
+    console.log("login success")
+    router.push({ name: "Home" })
+  } else {
+    console.log("login failed")
+  }
 };
 
 const logout = (context, data) => {
@@ -36,6 +64,7 @@ const logout = (context, data) => {
   console.log(data);
   store.commit("updateLogout");
   localStorage.removeItem('authIdentity');
+  localStorage.removeItem('waxUser');
 };
 
 // const loginMFA = (context, code) => {

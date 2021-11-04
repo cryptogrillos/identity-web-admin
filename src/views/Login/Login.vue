@@ -16,8 +16,8 @@
               margin: 0 auto;
             " 
         src="@/assets/img/logored3.png">
-        <form>
-            <fieldset class="uk-fieldset">
+        <!-- <form> -->
+            <!-- <fieldset class="uk-fieldset"> -->
 
                 <div class="uk-margin">
                     <input class="uk-input" type="text" placeholder="Usuario" v-model="username">
@@ -28,8 +28,8 @@
                 <div class="uk-margin">
                 <button style="background-color:#bf374a; color: white" class="uk-button uk-form" @click="sendLogin"> Login</button>
               </div>
-            </fieldset>
-        </form>
+            <!-- </fieldset> -->
+        <!-- </form> -->
         </div>
       </div>
     </div>

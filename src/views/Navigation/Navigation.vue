@@ -43,7 +43,7 @@
                   >
                   <h6
                   style="margin-right: 10px; display: contents"
-                  >User</h6>
+                  >{{ waxUser }}</h6>
                 </span>
                 <img 
                   style="
@@ -190,6 +190,7 @@ export default {
 
   data() {
     return {
+      waxUser: localStorage.getItem('waxUserAccount') ? localStorage.getItem('waxUserAccount') : "User",
       vuexHydrated: false,
       langs: ["es", "en"]
     };
