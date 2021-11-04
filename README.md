@@ -1,3 +1,3 @@
 # identity-web-admin
 
-![Diagrama](“Diagrama.png”)
+![Diagrama](Diagrama.png)
